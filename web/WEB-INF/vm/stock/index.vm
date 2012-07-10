@@ -1,0 +1,22 @@
+<h2>All Books</h2>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>Count</th>
+        </tr>
+        </thead>
+        <tbody>
+            #foreach ( $stockItem in $stockItems )
+            <tr>
+                <td>$stockItem.isbn</td>
+                <td>$stockItem.bookCount</td>
+            </tr>
+            #end
+        </tbody>
+    </table>
+</div>
+<div>
+    <a href="stock/new">Add New Inventory</a>
+</div>
