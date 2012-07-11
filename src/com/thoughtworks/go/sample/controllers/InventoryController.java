@@ -26,7 +26,7 @@ public class InventoryController {
     }
 
     @RequestMapping(value = "/stock", method = RequestMethod.GET)
-    public ModelAndView allBooks(HttpServletRequest request) {
+    public ModelAndView totalInventory(HttpServletRequest request) {
         Map model = new HashMap();
         HttpSession session = request.getSession();
         if (session != null) {
@@ -38,14 +38,14 @@ public class InventoryController {
     }
 
     @RequestMapping(value = "/stock/new", method = RequestMethod.GET)
-    public ModelAndView newBook() {
+    public ModelAndView newStockItem() {
         return new ModelAndView("stock/new", new HashMap());
     }
 
     @RequestMapping(value = "/stock/create", method = RequestMethod.POST)
-    public ModelAndView createBook(@RequestParam("isbn") String isbn,
-                                   @RequestParam("count") String count,
-                                   HttpServletRequest request) {
+    public ModelAndView createStockItem(@RequestParam("isbn") String isbn,
+                                        @RequestParam("count") String count,
+                                        HttpServletRequest request) {
         inventoryRepository.save(new StockItem(isbn, Integer.valueOf(count)));
         request.getSession(true).setAttribute("flash", "StockItem created successfully");
         return new ModelAndView(new RedirectView("/stock", true));
