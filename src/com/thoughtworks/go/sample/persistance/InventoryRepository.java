@@ -19,4 +19,10 @@ public class InventoryRepository extends HibernateDaoSupport {
     public List<StockItem> currentLedger() {
         return getHibernateTemplate().find("from StockItem");
     }
+
+    public StockItem stockFor(String isbn) {
+        List list = getHibernateTemplate().find("FROM StockItem WHERE isbn = ?", isbn);
+        if (list.isEmpty()) return null;
+        return (StockItem) list.get(0);
+    }
 }

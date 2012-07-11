@@ -47,6 +47,7 @@
     <orderEntry type="library" name="j2ee" level="project" />
     <orderEntry type="library" name="logging" level="project" />
     <orderEntry type="library" name="db" level="project" />
+    <orderEntry type="library" name="xstream" level="project" />
   </component>
 </module>
 

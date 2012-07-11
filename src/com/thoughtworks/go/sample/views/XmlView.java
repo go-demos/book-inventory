@@ -19,6 +19,6 @@ public class XmlView implements View {
     }
 
     public void render(Map model, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        xStream.toXML(model.get("books"), response.getOutputStream());
+        xStream.toXML(model.get("stockItem"), response.getOutputStream());
     }
 }
